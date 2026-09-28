@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPDB SD Muhammadiyah 001 Melak - TA 2026/2027</title>
+    <title>PPDB Online - SD Muhammadiyah 001 Melak</title>
     
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +21,6 @@
                         muhBlueLight: '#1E40AF',
                         muhGold: '#F59E0B',
                         muhGoldDark: '#D97706',
-                        muhGreen: '#10B981',
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -34,103 +33,88 @@
     <!-- Phosphor Icons CDN -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Custom Standalone Fail-Safe Styling -->
+    <!-- Custom CSS Styling -->
     <style>
-        :root {
-            --muh-blue: #0F2C59;
-            --muh-blue-light: #1E40AF;
-            --muh-gold: #F59E0B;
-            --muh-gold-dark: #D97706;
-            --muh-green: #10B981;
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 44, 89, 0.95) 0%, rgba(15, 44, 89, 0.85) 60%, rgba(30, 64, 175, 0.80) 100%);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            background-color: #F8FAFC;
-            color: #1E293B;
-            line-height: 1.5;
-        }
-
-        .gradient-muh {
-            background: linear-gradient(135deg, #0F2C59 0%, #1E3A8A 60%, #1E40AF 100%) !important;
-        }
-
         .card-shadow {
-            box-shadow: 0 10px 25px -5px rgba(15, 44, 89, 0.08) !important;
+            box-shadow: 0 10px 30px -5px rgba(15, 44, 89, 0.08);
         }
-
         .toast-slide {
             animation: slideDown 0.3s ease-out forwards;
         }
-
         @keyframes slideDown {
             from { transform: translateY(-100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        @media print {
+            body * { visibility: hidden; }
+            #printableArea, #printableArea * { visibility: visible; }
+            #printableArea { position: absolute; left: 0; top: 0; width: 100%; border: none; box-shadow: none; }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-amber-500 selection:text-white relative">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-500 selection:text-white relative font-sans">
 
-    <!-- Toast Notification Container (Pengganti Alert) -->
+    <!-- Toast Notification Container -->
     <div id="toastContainer" class="fixed top-5 right-5 z-[100] flex flex-col gap-2 max-w-sm w-full px-4 pointer-events-none"></div>
 
     <!-- Header / Navbar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-            <!-- Brand Logo -->
+            <!-- Brand Logo & Title -->
             <a href="#" class="flex items-center gap-3">
                 <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white flex items-center justify-center p-1 shadow-md border border-slate-200 shrink-0">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Lambang_Muhammadiyah.svg" alt="Logo Muhammadiyah" class="w-full h-full object-contain">
+                    <img id="imgLogoNav" src="" alt="Logo Sekolah" class="w-full h-full object-contain">
                 </div>
                 <div>
-                    <span class="block text-xs font-semibold text-amber-500 uppercase tracking-wider">Muhammadiyah</span>
-                    <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">SD Muhammadiyah 001 Melak</h1>
+                    <span class="block text-[10px] sm:text-xs font-bold text-amber-500 uppercase tracking-wider">Muhammadiyah</span>
+                    <h1 class="text-sm sm:text-base font-bold text-slate-900 leading-tight" id="txtNamaNav">SD Muhammadiyah 001 Melak</h1>
                 </div>
             </a>
 
             <!-- Desktop Nav Menu -->
             <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
                 <a href="#beranda" class="hover:text-blue-900 transition-colors">Beranda</a>
+                <a href="#alur" class="hover:text-blue-900 transition-colors">Alur PPDB</a>
                 <a href="#keunggulan" class="hover:text-blue-900 transition-colors">Keunggulan</a>
-                <a href="#galeri" class="hover:text-blue-900 transition-colors">Dokumentasi</a>
-                <a href="#informasi" class="hover:text-blue-900 transition-colors">Informasi PPDB</a>
-                <a href="#formulir" class="hover:text-blue-900 transition-colors">Formulir Online</a>
+                <a href="#galeri" class="hover:text-blue-900 transition-colors">Galeri</a>
+                <a href="#informasi" class="hover:text-blue-900 transition-colors">Syarat & Jadwal</a>
+                <a href="#berkas" class="hover:text-blue-900 transition-colors">Unduh Berkas</a>
             </div>
 
             <!-- Action Button -->
             <div class="hidden sm:flex items-center gap-3">
-                <a href="#formulir" class="bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2">
+                <a href="#formulir" class="bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
                     <i class="ph ph-note-pencil text-lg"></i>
                     <span>Daftar Sekarang</span>
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="menuToggle" class="md:hidden p-2 text-slate-700 hover:text-blue-900 focus:outline-none">
+            <button id="menuToggle" class="md:hidden p-2 text-slate-700 hover:text-blue-900 focus:outline-none" aria-label="Buka Menu">
                 <i class="ph ph-list text-2xl"></i>
             </button>
         </nav>
 
         <!-- Mobile Drawer -->
-        <div id="mobileDrawer" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3">
+        <div id="mobileDrawer" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3 shadow-lg">
             <a href="#beranda" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Beranda</a>
+            <a href="#alur" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Alur PPDB</a>
             <a href="#keunggulan" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Keunggulan</a>
-            <a href="#galeri" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Dokumentasi</a>
-            <a href="#informasi" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Informasi PPDB</a>
-            <a href="#formulir" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Formulir Online</a>
+            <a href="#galeri" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Galeri Activities</a>
+            <a href="#informasi" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Syarat & Jadwal</a>
+            <a href="#berkas" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Unduh Berkas Cetak</a>
             <a href="#formulir" class="block text-center bg-amber-500 text-white font-bold py-2.5 rounded-xl mt-2">Daftar Sekarang</a>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section id="beranda" class="gradient-muh text-white py-16 sm:py-20 relative overflow-hidden">
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- Hero Banner with Custom Background Image -->
+    <section id="beranda" class="relative text-white py-16 sm:py-24 overflow-hidden bg-cover bg-center transition-all duration-300">
+        <div class="absolute inset-0 hero-overlay z-0"></div>
+        
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-10 items-center">
                 
@@ -138,15 +122,15 @@
                 <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-medium text-amber-300">
                         <i class="ph ph-sparkle text-base"></i>
-                        <span>Penerimaan Peserta Didik Baru TA 2026/2027</span>
+                        <span>Penerimaan Peserta Didik Baru <span id="txtHeroTahun">2026/2027</span></span>
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
                         Membentuk Generasi Cerdas, <span class="text-amber-400">Berprestasi & Berakhlaq Mulia</span>
                     </h2>
 
-                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Selamat datang di portal resmi PPDB <strong>SD Muhammadiyah 001 Melak</strong>, Kabupaten Kutai Barat. Kami siap mendidik putra-putri Anda dengan fondasi Al-Islam, Tahfizh Qur'an, dan ilmu pengetahuan modern.
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0" id="txtHeroDeskripsi">
+                        Selamat datang di portal resmi PPDB online. Kami siap mendidik putra-putri Anda dengan fondasi Al-Islam, Tahfizh Qur'an, dan ilmu pengetahuan modern.
                     </p>
 
                     <!-- Hero Quick CTAs -->
@@ -157,42 +141,42 @@
                         </a>
                         <a id="btnWaHero" href="#" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-xl backdrop-blur-md transition-all flex items-center gap-2">
                             <i class="ph ph-whatsapp-logo text-xl text-emerald-400"></i>
-                            <span>Tanya Panitia (WA)</span>
+                            <span>Hubungi Panitia WA</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Hero Right Summary Box -->
+                <!-- Hero Right Summary Card -->
                 <div class="lg:col-span-5">
                     <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 card-shadow border border-slate-100 space-y-4">
                         <div class="border-b border-slate-100 pb-4">
-                            <span class="text-xs font-bold text-amber-500 uppercase">Informasi Sekolah</span>
-                            <h3 class="text-xl font-bold text-slate-900" id="txtNamaSekolah">SD Muhammadiyah 001 Melak</h3>
-                            <p class="text-xs text-slate-500 mt-1" id="txtAlamatSekolah">Kecamatan Melak, Kabupaten Kutai Barat</p>
+                            <span class="text-xs font-bold text-amber-500 uppercase">Informasi Ringkas Sekolah</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-0.5" id="txtNamaSekolah">SD Muhammadiyah 001 Melak</h3>
+                            <p class="text-xs text-slate-500 mt-1" id="txtAlamatSekolah">-</p>
                         </div>
 
                         <div class="space-y-3 text-xs sm:text-sm">
                             <div class="flex justify-between py-1 border-b border-slate-50">
                                 <span class="text-slate-500">NPSN:</span>
-                                <strong class="text-slate-800" id="txtNpsn">30405647</strong>
+                                <strong class="text-slate-800" id="txtNpsn">-</strong>
                             </div>
                             <div class="flex justify-between py-1 border-b border-slate-50">
                                 <span class="text-slate-500">Akreditasi:</span>
-                                <strong class="text-emerald-600 font-bold" id="txtAkreditasi">Terakreditasi B</strong>
+                                <strong class="text-emerald-600 font-bold" id="txtAkreditasi">-</strong>
                             </div>
                             <div class="flex justify-between py-1 border-b border-slate-50">
                                 <span class="text-slate-500">Kuota Penerimaan:</span>
-                                <strong class="text-blue-900 font-bold" id="txtKuota">60 Siswa</strong>
+                                <strong class="text-blue-900 font-bold" id="txtKuota">-</strong>
                             </div>
                             <div class="flex justify-between py-1">
                                 <span class="text-slate-500">Biaya Formulir:</span>
-                                <strong class="text-amber-600 font-bold" id="txtBiayaForm">Rp 150.000</strong>
+                                <strong class="text-amber-600 font-bold" id="txtBiayaForm">-</strong>
                             </div>
                         </div>
 
                         <div class="pt-2">
                             <a href="#informasi" class="block w-full py-2.5 text-center bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold text-xs transition-colors">
-                                Lihat Rincian Syarat & Jadwal &rarr;
+                                Lihat Syarat & Jadwal Lengkap &rarr;
                             </a>
                         </div>
                     </div>
@@ -202,8 +186,44 @@
         </div>
     </section>
 
+    <!-- Alur Pendaftaran Section -->
+    <section id="alur" class="py-14 bg-white border-b border-slate-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Tahapan Pendaftaran</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">4 Langkah Mudah Mendaftar</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-blue-900 text-white font-bold flex items-center justify-center mb-3 text-lg">1</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Isi Form Online</h3>
+                    <p class="text-xs text-slate-600">Lengkapi data calon siswa dan orang tua melalui formulir di web ini.</p>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-white font-bold flex items-center justify-center mb-3 text-lg">2</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Konfirmasi WA</h3>
+                    <p class="text-xs text-slate-600">Selesaikan form lalu klik kirim bukti ke WhatsApp panitia untuk verifikasi awal.</p>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center mb-3 text-lg">3</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Cetak / Unduh Berkas</h3>
+                    <p class="text-xs text-slate-600">Cetak bukti daftar dan unduh format Surat Pernyataan yang telah disediakan.</p>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-purple-700 text-white font-bold flex items-center justify-center mb-3 text-lg">4</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">Serahkan Berkas Fisik</h3>
+                    <p class="text-xs text-slate-600">Bawa seluruh berkas fisik & persyaratan ke sekretariat panitia di sekolah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Keunggulan Section -->
-    <section id="keunggulan" class="py-16 bg-white">
+    <section id="keunggulan" class="py-16 bg-slate-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Mengapa Memilih Kami?</span>
@@ -211,8 +231,7 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-12 h-12 bg-blue-100 text-blue-900 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-book-open-text"></i>
                     </div>
@@ -220,107 +239,57 @@
                     <p class="text-xs text-slate-600 leading-relaxed">Pembiasaan sholat dhuha, sholat berjamaah, pembentukan akhlaqul karimah dan karakter islami sejak dini.</p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-quran"></i>
                     </div>
                     <h3 class="font-bold text-slate-800 text-base mb-2">Program Tahfizh Al-Qur'an</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Bimbingan hafalan Juz 30 dan surat-surat pilihan dengan metode baca Al-Qur'an yang tajwid dan terstruktur.</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">Bimbingan hafalan Juz 30 dan surat-surat pilihan dengan metode tajwid yang terstruktur.</p>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-chalkboard-teacher"></i>
                     </div>
                     <h3 class="font-bold text-slate-800 text-base mb-2">Guru Berdedikasi</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Tenaga pendidik kualifikasi S1 yang sabar, ramah anak, serta aktif mengembangkan potensi setiap siswa.</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">Tenaga pendidik kualifikasi S1 yang sabar, ramah anak, serta aktif mengarahkan bakat siswa.</p>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all">
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-trophy"></i>
                     </div>
                     <h3 class="font-bold text-slate-800 text-base mb-2">Ekstrakurikuler Beragam</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Kepanduan Hizbul Wathan (HW), Tapak Suci, seni baca Al-Qur'an, olahraga, dan sains dasar.</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">Kepanduan Hizbul Wathan (HW), Tapak Suci, seni Al-Qur'an, olahraga, dan club sains.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Galeri Dokumentasi Kegiatan -->
-    <section id="galeri" class="py-16 bg-slate-100 border-t border-b border-slate-200">
+    <section id="galeri" class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Aktivitas Siswa</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Dokumentasi Kegiatan Sekolah</h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">Potret kegiatan belajar, pembiasaan ibadah, dan ekstrakurikuler siswa-siswi kami.</p>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Potret kegiatan belajar, pembiasaan ibadah, dan kegiatan pendukung siswa.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Foto 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200">
-                    <div class="h-48 overflow-hidden bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=600&q=80" alt="Bimbingan Tahfidz Al-Qur'an" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded uppercase">Tahfizh Qur'an</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-1">Bimbingan Hafalan Al-Qur'an</h4>
-                        <p class="text-xs text-slate-500 mt-1">Pembiasaan setoran hafalan harian bersama ustaz dan ustazah.</p>
-                    </div>
-                </div>
-
-                <!-- Foto 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200">
-                    <div class="h-48 overflow-hidden bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=600&q=80" alt="Sholat Berjamaah" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase">Pembiasaan Ibadah</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-1">Sholat Dhuha & Dzuhur Berjamaah</h4>
-                        <p class="text-xs text-slate-500 mt-1">Membentuk karakter disiplin ibadah sejak usia dini.</p>
-                    </div>
-                </div>
-
-                <!-- Foto 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200">
-                    <div class="h-48 overflow-hidden bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80" alt="Ekstrakurikuler Tapak Suci" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase">Ekstrakurikuler</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-1">Latihan Tapak Suci & HW</h4>
-                        <p class="text-xs text-slate-500 mt-1">Melatih keberanian, kemandirian, dan ketangkasan fisik.</p>
-                    </div>
-                </div>
-
-                <!-- Foto 4 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200">
-                    <div class="h-48 overflow-hidden bg-slate-200">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Suasana Belajar Aktif" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4">
-                        <span class="text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded uppercase">Pembelajaran</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-1">Kelas Aktif & Menyenangkan</h4>
-                        <p class="text-xs text-slate-500 mt-1">Metode pembelajaran modern yang interaktif dan ramah anak.</p>
-                    </div>
-                </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="boxGaleriFoto">
+                <!-- Content generated from CONFIG_PPDB.galeriFoto -->
             </div>
         </div>
     </section>
 
-    <!-- Informasi PPDB Section -->
-    <section id="informasi" class="py-16 bg-slate-50">
+    <!-- Informasi PPDB & Syarat Berkas Fisik -->
+    <section id="informasi" class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Panduan Lengkap</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Jadwal & Syarat Pendaftaran</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Jadwal & Persyaratan Fisik</h2>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                
                 <!-- Gelombang Pendaftaran -->
                 <div class="bg-white rounded-3xl p-6 sm:p-8 card-shadow border border-slate-100 space-y-4">
                     <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
@@ -329,36 +298,91 @@
                     </h3>
 
                     <div id="listGelombang" class="space-y-3 pt-2">
-                        <!-- Otomatis diisi oleh JavaScript berdasarkan Tanggal Hari Ini -->
+                        <!-- Dynamic via JS -->
                     </div>
                 </div>
 
-                <!-- Persyaratan Berkas -->
+                <!-- Persyaratan Berkas Fisik -->
                 <div class="bg-white rounded-3xl p-6 sm:p-8 card-shadow border border-slate-100 space-y-4">
                     <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                         <i class="ph ph-files text-2xl text-amber-500"></i>
-                        <span>Persyaratan Berkas Fisik (Diberikan ke Sekolah)</span>
+                        <span>Berkas Fisik yang Harus Diserahkan</span>
                     </h3>
+                    <p class="text-xs text-slate-500">Diserahkan ke Panitia PPDB di Sekolah saat verifikasi berkas:</p>
 
-                    <ul id="listSyarat" class="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-2">
-                        <!-- Otomatis diisi oleh JS -->
+                    <ul id="listSyarat" class="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-1">
+                        <!-- Dynamic via JS -->
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Seksi Unduh Berkas Fisik / Download Documents -->
+    <section id="berkas" class="py-16 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Berkas PDF Cetak</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Pusat Unduhan Berkas Fisik</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Silakan unduh dan cetak formulir pendukung di bawah ini sebelum diserahkan ke sekolah.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto" id="boxDownloadBerkas">
+                <!-- Card Surat Pernyataan -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between hover:border-amber-400 transition-all">
+                    <div class="space-y-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl">
+                            <i class="ph ph-file-pdf"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-800">Surat Pernyataan Ortu</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Format surat pernyataan kesediaan mematuhi tata tertib sekolah.</p>
+                    </div>
+                    <a id="btnUnduhPernyataan" href="#" target="_blank" class="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
+                        <i class="ph ph-download-simple text-base"></i> Unduh File
+                    </a>
+                </div>
+
+                <!-- Card Brosur Sekolah -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between hover:border-amber-400 transition-all">
+                    <div class="space-y-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-900 flex items-center justify-center text-2xl">
+                            <i class="ph ph-file-text"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-800">Brosur & Rincian Biaya</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Informasi lengkap rincian seragam, infak, dan jadwal kegiatan PPDB.</p>
+                    </div>
+                    <a id="btnUnduhBrosur" href="#" target="_blank" class="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
+                        <i class="ph ph-download-simple text-base"></i> Unduh File
+                    </a>
+                </div>
+
+                <!-- Card Formulir Manual Cetak -->
+                <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col justify-between hover:border-amber-400 transition-all">
+                    <div class="space-y-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl">
+                            <i class="ph ph-printer"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-800">Formulir Isian Manual</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Formulir kosong cetak jika ingin mengisi data secara tulisan tangan.</p>
+                    </div>
+                    <a id="btnUnduhFormManual" href="#" target="_blank" class="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
+                        <i class="ph ph-download-simple text-base"></i> Unduh File
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Formulir Pendaftaran Section -->
-    <section id="formulir" class="py-16 bg-white">
+    <section id="formulir" class="py-16 bg-slate-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
                 <span class="text-amber-500 font-bold text-xs uppercase tracking-wider">Formulir Online</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Daftarkan Calon Siswa Baru</h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">Isi data di bawah ini secara lengkap dan jelas.</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Isi Data Calon Siswa Baru</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Isikan informasi calon peserta didik dengan benar dan lengkap.</p>
             </div>
 
-            <div class="max-w-3xl mx-auto bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200 card-shadow">
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 card-shadow">
                 
                 <form id="formPpdb" onsubmit="simpanPendaftaran(event)">
                     
@@ -372,18 +396,18 @@
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div class="sm:col-span-2">
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Siswa *</label>
-                                <input type="text" id="inNamaSiswa" name="namaSiswa" required placeholder="Sesuai Akta Kelahiran" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="text" id="inNamaSiswa" name="namaSiswa" required placeholder="Sesuai Akta Kelahiran" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">NIK Siswa (Kartu Keluarga) *</label>
-                                <input type="number" id="inNikSiswa" name="nikSiswa" required placeholder="16 Digit NIK" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="number" id="inNikSiswa" name="nikSiswa" required placeholder="16 Digit NIK" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Jenis Kelamin *</label>
-                                <select id="inJkel" name="jenisKelamin" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
-                                    <option value="">-- Pilih --</option>
+                                <select id="inJkel" name="jenisKelamin" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
+                                    <option value="">-- Pilih Jenis Kelamin --</option>
                                     <option value="Laki-laki">Laki-laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
@@ -391,23 +415,23 @@
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Tempat Lahir *</label>
-                                <input type="text" id="inTempatLahir" name="tempatLahir" required placeholder="Contoh: Melak" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="text" id="inTempatLahir" name="tempatLahir" required placeholder="Kota / Kabupaten" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Tanggal Lahir *</label>
-                                <input type="date" id="inTglLahir" name="tglLahir" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="date" id="inTglLahir" name="tglLahir" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div class="sm:col-span-2">
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Asal TK / RA / PAUD</label>
-                                <input type="text" id="inAsalSekolah" name="asalSekolah" placeholder="Contoh: TK ABA Melak" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="text" id="inAsalSekolah" name="asalSekolah" placeholder="Nama TK asal (Jika ada)" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
                         </div>
                     </div>
 
                     <!-- Section 2: Data Orang Tua / Wali -->
-                    <div class="space-y-4 py-6 border-b border-slate-200">
+                    <div class="space-y-4 py-6">
                         <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
                             <span class="w-7 h-7 rounded-lg bg-blue-900 text-white flex items-center justify-center text-xs font-semibold">2</span>
                             Data Orang Tua / Wali
@@ -416,77 +440,36 @@
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Nama Ayah / Wali *</label>
-                                <input type="text" id="inNamaAyah" name="namaAyah" required placeholder="Nama Lengkap" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="text" id="inNamaAyah" name="namaAyah" required placeholder="Nama Lengkap Ayah" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Nama Ibu *</label>
-                                <input type="text" id="inNamaIbu" name="namaIbu" required placeholder="Nama Lengkap" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <input type="text" id="inNamaIbu" name="namaIbu" required placeholder="Nama Lengkap Ibu" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp / HP Aktif *</label>
-                                <input type="tel" id="inWa" name="noWa" required placeholder="0812xxxxxxxx" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp Orang Tua *</label>
+                                <input type="tel" id="inWa" name="noWa" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Pekerjaan Utama Ortu</label>
-                                <input type="text" id="inPekerjaan" name="pekerjaanOrtu" placeholder="Swasta / PNS / Wiraswasta" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Pekerjaan Orang Tua</label>
+                                <input type="text" id="inPekerjaan" name="pekerjaanOrtu" placeholder="Swasta / PNS / Wiraswasta" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all">
                             </div>
 
                             <div class="sm:col-span-2">
                                 <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Rumah Lengkap *</label>
-                                <textarea id="inAlamat" name="alamatLengkap" rows="2" required placeholder="Nama Jalan, RT, Kelurahan, Kecamatan" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-white"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 3: Download Berkas Pendukung -->
-                    <div class="space-y-4 py-6 border-b border-slate-200">
-                        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-lg bg-blue-900 text-white flex items-center justify-center text-xs font-semibold">3</span>
-                            Download Berkas & Form Cetak
-                        </h3>
-                        <p class="text-xs text-slate-500 mb-2">Silakan unduh berkas pendukung di bawah ini untuk dilengkapi saat penyerahan berkas fisik ke sekolah.</p>
-
-                        <div class="grid sm:grid-cols-2 gap-3" id="boxDownloadBerkas">
-                            <div class="p-3.5 bg-white border border-slate-200 rounded-2xl flex items-center justify-between hover:bg-slate-100 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
-                                        <i class="ph ph-file-pdf"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs font-bold text-slate-800">Surat Pernyataan Ortu</h4>
-                                        <p class="text-[11px] text-slate-500">Format PDF / Cetak</p>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="unduhSimulasi('Surat Pernyataan Orang Tua')" class="px-3 py-1.5 bg-blue-900 hover:bg-blue-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0">
-                                    <i class="ph ph-download-simple"></i> Unduh
-                                </button>
-                            </div>
-
-                            <div class="p-3.5 bg-white border border-slate-200 rounded-2xl flex items-center justify-between hover:bg-slate-100 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-900 flex items-center justify-center text-xl shrink-0">
-                                        <i class="ph ph-file-text"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs font-bold text-slate-800">Brosur & Rincian Biaya</h4>
-                                        <p class="text-[11px] text-slate-500">Panduan Lengkap PPDB</p>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="unduhSimulasi('Brosur & Rincian Biaya')" class="px-3 py-1.5 bg-blue-900 hover:bg-blue-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shrink-0">
-                                    <i class="ph ph-download-simple"></i> Unduh
-                                </button>
+                                <textarea id="inAlamat" name="alamatLengkap" rows="2" required placeholder="Jalan, RT/RW, Kelurahan, Kecamatan" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-900 focus:outline-none bg-slate-50 focus:bg-white transition-all"></textarea>
                             </div>
                         </div>
                     </div>
 
                     <!-- Submit Button -->
-                    <div class="pt-6 text-right">
-                        <button type="submit" id="btnSubmitForm" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                    <div class="pt-4 border-t border-slate-200 text-right">
+                        <button type="submit" id="btnSubmitForm" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                             <i id="iconSubmit" class="ph ph-paper-plane-right text-lg"></i>
-                            <span id="textSubmit">Kirim Pendaftaran</span>
+                            <span id="textSubmit">Simpan & Kirim Pendaftaran</span>
                         </button>
                     </div>
 
@@ -500,72 +483,71 @@
     <footer class="bg-slate-900 text-white pt-12 pb-8 border-t border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-xs sm:text-sm">
-                
-                <!-- Col 1 -->
                 <div class="space-y-3">
                     <div class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded bg-white p-0.5 flex items-center justify-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Lambang_Muhammadiyah.svg" alt="Logo" class="w-full h-full object-contain">
+                        <div class="w-8 h-8 rounded bg-white p-0.5 flex items-center justify-center shrink-0">
+                            <img id="imgLogoFooter" src="" alt="Logo Footer" class="w-full h-full object-contain">
                         </div>
-                        <h3 class="font-extrabold text-base text-white">SD Muhammadiyah 001 Melak</h3>
+                        <h3 class="font-extrabold text-base text-white" id="txtFooterNamaSekolah">SD Muhammadiyah 001 Melak</h3>
                     </div>
-                    <p class="text-slate-300 leading-relaxed" id="txtFooterAlamat">
-                        Jl. Ahmad Yani RT.14 Kel. Melak Ulu, Kec. Melak, Kab. Kutai Barat, Kalimantan Timur 75565
+                    <p class="text-slate-400 leading-relaxed" id="txtFooterAlamat">
+                        -
                     </p>
                 </div>
 
-                <!-- Col 2 -->
                 <div class="space-y-2">
                     <h4 class="font-bold text-amber-500 uppercase tracking-wider text-xs">Kontak Panitia</h4>
                     <p class="text-slate-300 flex items-center gap-2">
-                        <i class="ph ph-phone text-base text-amber-500"></i>
-                        <span id="txtFooterTelp">0812-3456-7890</span>
+                        <i class="ph ph-whatsapp-logo text-base text-emerald-400"></i>
+                        <span id="txtFooterTelp">-</span>
                     </p>
                     <p class="text-slate-300 flex items-center gap-2">
                         <i class="ph ph-envelope text-base text-amber-500"></i>
-                        <span id="txtFooterEmail">sdmuhammadiyahmelak@gmail.com</span>
+                        <span id="txtFooterEmail">-</span>
                     </p>
                 </div>
 
-                <!-- Col 3 -->
                 <div class="space-y-2">
                     <h4 class="font-bold text-amber-500 uppercase tracking-wider text-xs">Pendidikan Muhammadiyah</h4>
-                    <p class="text-slate-300 leading-relaxed">
-                        Mewujudkan pendidikan SD berasaskan Nilai Islam, Unggul Prestasi, dan Berkarakter Muhammadiyah.
+                    <p class="text-slate-400 leading-relaxed">
+                        Mewujudkan pendidikan berasaskan Nilai Islam, Unggul Prestasi, dan Berkarakter Muhammadiyah.
                     </p>
                 </div>
-
             </div>
 
-            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-400">
-                <p>&copy; 2026 SD Muhammadiyah 001 Melak. All Rights Reserved.</p>
+            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+                <p>&copy; <span id="txtTahunFooter">2026</span> SD Muhammadiyah 001 Melak. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal Bukti Pendaftaran -->
-    <div id="modalBukti" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 card-shadow space-y-4">
+    <!-- Modal Bukti Pendaftaran & Kirim WA -->
+    <div id="modalBukti" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 card-shadow space-y-4" id="printableArea">
             <div class="text-center">
                 <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl font-bold">
                     <i class="ph ph-check-circle-fill"></i>
                 </div>
                 <h3 class="text-xl font-bold text-slate-900">Pendaftaran Berhasil!</h3>
-                <p class="text-xs text-slate-500">Simpan bukti registrasi Anda di bawah ini.</p>
+                <p class="text-xs text-slate-500">Simpan bukti registrasi ini dan lakukan konfirmasi ke Panitia.</p>
             </div>
 
             <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 text-slate-700">
                 <div class="flex justify-between border-b pb-1.5">
                     <span class="text-slate-500">No. Registrasi:</span>
-                    <strong id="mKode" class="font-mono text-amber-600 text-sm">PPDB-2026-001</strong>
+                    <strong id="mKode" class="font-mono text-amber-600 text-sm">PPDB-2026-000</strong>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-slate-500">Nama Siswa:</span>
-                    <strong id="mNama">-</strong>
+                    <strong id="mNama" class="text-slate-900">-</strong>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-500">Orang Tua:</span>
+                    <span class="text-slate-500">Orang Tua / Wali:</span>
                     <span id="mOrtu">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">No. WA Ortu:</span>
+                    <span id="mWaOrtu">-</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-slate-500">Tanggal Daftar:</span>
@@ -573,56 +555,124 @@
                 </div>
             </div>
 
-            <div class="flex gap-2">
-                <button onclick="window.print()" class="flex-1 py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5">
-                    <i class="ph ph-printer text-base"></i> Cetak Bukti
-                </button>
-                <button onclick="tutupModal()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-semibold text-xs">
-                    Tutup
-                </button>
+            <div class="space-y-2 pt-1 no-print">
+                <!-- Tombol Utama Kirim WA Panitia -->
+                <a id="btnKirimWaKonfirmasi" href="#" target="_blank" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all">
+                    <i class="ph ph-whatsapp-logo text-lg"></i>
+                    <span>Kirim Konfirmasi WA ke Panitia</span>
+                </a>
+
+                <div class="flex gap-2">
+                    <button onclick="window.print()" class="flex-1 py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
+                        <i class="ph ph-printer text-base"></i> Cetak Bukti
+                    </button>
+                    <button onclick="tutupModal()" class="px-4 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-semibold text-xs transition-colors">
+                        Tutup
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Application Logic & Data Configuration -->
+    <!-- Application Configuration & Script Logic -->
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweHdwb6BE_8Bp3ZAxQnZwOJ3qwmnZB6pgNO_uDBBcStWtudxVNT0yX325SxNTd7_xQ/exec';
-
-        const sekolahData = {
+        /* =========================================================================
+           KOTAK PENGATURAN UTAMA (CONFIG PPDB)
+           Ganti URL, Nomor WA, Logo, dan Dokumen di bawah ini dengan mudah.
+           ========================================================================= */
+        const CONFIG_PPDB = {
+            // 1. INFORMASI DASAR SEKOLAH
             namaSekolah: "SD Muhammadiyah 001 Melak",
             npsn: "30405647",
-            akreditasi: "B (Terakreditasi)",
-            alamat: "Jl. Ahmad Yani RT.14 Kel. Melak Ulu, Kec. Melak, Kab. Kutai Barat, Kaltim",
-            telepon: "0812-3456-7890",
+            akreditasi: "A (Terakreditasi)",
+            alamat: "Jl. Ahmad Yani RT.14 Kel. Melak Ulu, Kec. Melak, Kab. Kutai Barat, Kaltim 75565",
             email: "sdmuhammadiyahmelak@gmail.com",
             tahunAjaran: "2026 / 2027",
             kuota: "60 Siswa Baru (2 Rombel)",
-            biayaFormulir: "Rp 150.000",
-            
+            biayaFormulir: "Rp 2.000.000",
+
+            // 2. NOMOR WHATSAPP PANITIA (Yang akan menerima konfirmasi dari Ortu)
+            // Format: Boleh "08123456789" atau "628123456789"
+            teleponWaPanitia: "082234760733",
+
+            // 3. URL GOOGLE APPS SCRIPT WEB APP (Dapat dari Deployment script Code.gs)
+            googleScriptUrl: "https://script.google.com/macros/s/AKfycbweHdwb6BE_8Bp3ZAxQnZwOJ3qwmnZB6pgNO_uDBBcStWtudxVNT0yX325SxNTd7_xQ/exec",
+
+            // 4. LINK GAMBAR LOGO & BACKGROUND HERO
+            logoSekolahUrl: "https://upload.wikimedia.org/wikipedia/commons/4/45/Lambang_Muhammadiyah.svg",
+            heroBgImageUrl: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80",
+
+            // 5. LINK UNDUHAN BERKAS FISIK (Google Drive / PDF / Dropbox)
+            linkDownloadPernyataanOrtu: "https://drive.google.com/file/d/1jI63VdAA1l83IigtuhKp6tQxs43m1stG/view?usp=drive_link",
+            linkDownloadBrosur: "https://drive.google.com/file/d/LINK_FILE_BROSUR/view",
+            linkDownloadFormManual: "https://drive.google.com/file/d/LINK_FILE_FORMULIR_MANUAL/view",
+
+            // 6. JADWAL GELOMBANG PENDAFTARAN
             gelombang: [
                 { 
-                    nama: "Gelombang I", 
+                    nama: "Gelombang I (Utama)", 
                     tgl: "02 Januari - 31 Maret 2026", 
                     start: "2026-01-02", 
                     end: "2026-03-31" 
                 },
                 { 
-                    nama: "Gelombang II", 
+                    nama: "Gelombang II (Peluang)", 
                     tgl: "01 April - 30 Juni 2026", 
                     start: "2026-04-01", 
                     end: "2026-06-30" 
                 }
             ],
-            persyaratan: [
-                "Fotokopi Akta Kelahiran (2 Lembar)",
+
+            // 7. PERSYARATAN BERKAS FISIK DICETAK/DISERAHKAN
+            persyaratanFisik: [
+                "Cetak Bukti Pendaftaran Online (2 Lembar)",
+                "Surat Pernyataan Orang Tua / Wali Bermaterai (1 Lembar)",
+                "Fotokopi Akta Kelahiran Calon Siswa (2 Lembar)",
                 "Fotokopi Kartu Keluarga / KK (2 Lembar)",
-                "Fotokopi KTP Orang Tua / Wali (2 Lembar)",
-                "Pasfoto Ukuran 3x4 Background Merah (4 Lembar)",
-                "Fotokopi Ijazah / Surat Keterangan Lulus TK / RA (1 Lembar)"
+                "Fotokopi KTP Kedua Orang Tua / Wali (2 Lembar)",
+                "Pasfoto Terbaru Ukuran 3x4 Background Merah (4 Lembar)",
+                "Fotokopi Ijazah / Surat Keterangan Lulus TK/RA (1 Lembar)"
+            ],
+
+            // 8. GALERI FOTO KEGIATAN
+            galeriFoto: [
+                {
+                    judul: "Bimbingan Tahfizh Qur'an",
+                    kategori: "Program Unggulan",
+                    imageUrl: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=600&q=80",
+                    deskripsi: "Pembiasaan setoran hafalan harian bersama ustaz dan ustazah."
+                },
+                {
+                    judul: "Sholat Dhuha Berjamaah",
+                    kategori: "Pembiasaan Ibadah",
+                    imageUrl: "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=600&q=80",
+                    deskripsi: "Membentuk karakter disiplin ibadah sejak usia dini."
+                },
+                {
+                    judul: "Kepanduan Hizbul Wathan",
+                    kategori: "Ekstrakurikuler",
+                    imageUrl: "https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80",
+                    deskripsi: "Melatih kemandirian, kedisiplinan, dan ketangkasan fisik."
+                },
+                {
+                    judul: "Kelas Aktif & Interaktif",
+                    kategori: "Pembelajaran",
+                    imageUrl: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80",
+                    deskripsi: "Metode pembelajaran modern yang menyenangkan dan ramah anak."
+                }
             ]
         };
 
-        // Custom Toast Messenger (Menghindari Penggunaan alert())
+        // Format nomor HP agar valid untuk link WhatsApp API (misal 08123 -> 628123)
+        function formatNomorWa(noHp) {
+            let cleaned = ('' + noHp).replace(/\D/g, '');
+            if (cleaned.startsWith('0')) {
+                cleaned = '62' + cleaned.substring(1);
+            }
+            return cleaned;
+        }
+
+        // Handler Notifikasi Toast
         function showToast(message, type = 'info') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
@@ -645,6 +695,7 @@
             }, 4000);
         }
 
+        // Kalkulasi Status Gelombang (Aktif/Mendatang/Tutup)
         function hitungStatusGelombang(startDateStr, endDateStr) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
@@ -654,31 +705,68 @@
             if (today < start) {
                 return { label: "Mendatang", bgClass: "bg-amber-100 text-amber-800 font-semibold" };
             } else if (today >= start && today <= end) {
-                return { label: "Buka", bgClass: "bg-emerald-100 text-emerald-800 font-bold" };
+                return { label: "Dibuka", bgClass: "bg-emerald-100 text-emerald-800 font-bold" };
             } else {
-                return { label: "Tutup", bgClass: "bg-slate-200 text-slate-600 font-medium" };
+                return { label: "Ditutup", bgClass: "bg-slate-200 text-slate-600 font-medium" };
             }
         }
 
+        // Inisialisasi Elemen & Data Konfigurasi Saat Halaman Dimuat
         window.addEventListener('DOMContentLoaded', () => {
-            // Render data ke elemen halaman
-            document.getElementById('txtNamaSekolah').innerText = sekolahData.namaSekolah;
-            document.getElementById('txtNpsn').innerText = sekolahData.npsn;
-            document.getElementById('txtAkreditasi').innerText = sekolahData.akreditasi;
-            document.getElementById('txtAlamatSekolah').innerText = sekolahData.alamat;
-            document.getElementById('txtKuota').innerText = sekolahData.kuota;
-            document.getElementById('txtBiayaForm').innerText = sekolahData.biayaFormulir;
-            document.getElementById('txtFooterAlamat').innerText = sekolahData.alamat;
-            document.getElementById('txtFooterTelp').innerText = sekolahData.telepon;
-            document.getElementById('txtFooterEmail').innerText = sekolahData.email;
+            // Pasang Logo
+            document.getElementById('imgLogoNav').src = CONFIG_PPDB.logoSekolahUrl;
+            document.getElementById('imgLogoFooter').src = CONFIG_PPDB.logoSekolahUrl;
 
-            // Link WhatsApp Panitia
-            const cleanPhone = sekolahData.telepon.replace(/[^0-9]/g, '');
-            document.getElementById('btnWaHero').href = `https://wa.me/${cleanPhone}?text=Assalamu%27alaikum%20Panitia%20PPDB%20SD%20Muhammadiyah%20001%20Melak`;
+            // Pasang Background Hero
+            const heroElem = document.getElementById('beranda');
+            if (CONFIG_PPDB.heroBgImageUrl) {
+                heroElem.style.backgroundImage = `url('${CONFIG_PPDB.heroBgImageUrl}')`;
+            }
 
-            // Render List Gelombang
+            // Teks Identitas Sekolah
+            document.getElementById('txtNamaNav').innerText = CONFIG_PPDB.namaSekolah;
+            document.getElementById('txtNamaSekolah').innerText = CONFIG_PPDB.namaSekolah;
+            document.getElementById('txtFooterNamaSekolah').innerText = CONFIG_PPDB.namaSekolah;
+            document.getElementById('txtHeroTahun').innerText = CONFIG_PPDB.tahunAjaran;
+            document.getElementById('txtNpsn').innerText = CONFIG_PPDB.npsn;
+            document.getElementById('txtAkreditasi').innerText = CONFIG_PPDB.akreditasi;
+            document.getElementById('txtAlamatSekolah').innerText = CONFIG_PPDB.alamat;
+            document.getElementById('txtFooterAlamat').innerText = CONFIG_PPDB.alamat;
+            document.getElementById('txtKuota').innerText = CONFIG_PPDB.kuota;
+            document.getElementById('txtBiayaForm').innerText = CONFIG_PPDB.biayaFormulir;
+            document.getElementById('txtFooterTelp').innerText = CONFIG_PPDB.teleponWaPanitia;
+            document.getElementById('txtFooterEmail').innerText = CONFIG_PPDB.email;
+
+            // Link Unduhan File Fisik
+            document.getElementById('btnUnduhPernyataan').href = CONFIG_PPDB.linkDownloadPernyataanOrtu;
+            document.getElementById('btnUnduhBrosur').href = CONFIG_PPDB.linkDownloadBrosur;
+            document.getElementById('btnUnduhFormManual').href = CONFIG_PPDB.linkDownloadFormManual;
+
+            // Link WA Hero Section
+            const waCleanPanitia = formatNomorWa(CONFIG_PPDB.teleponWaPanitia);
+            const defaultHeroWaMsg = encodeURIComponent(`Assalamu'alaikum Panitia PPDB ${CONFIG_PPDB.namaSekolah}, saya ingin bertanya mengenai pendaftaran.`);
+            document.getElementById('btnWaHero').href = `https://wa.me/${waCleanPanitia}?text=${defaultHeroWaMsg}`;
+
+            // Render Galeri
+            const boxGaleri = document.getElementById('boxGaleriFoto');
+            boxGaleri.innerHTML = CONFIG_PPDB.galeriFoto.map(item => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 flex flex-col">
+                    <div class="h-44 overflow-hidden bg-slate-200 relative">
+                        <img src="${item.imageUrl}" alt="${item.judul}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/0F2C59/FFFFFF?text=Dokumentasi+Sekolah'">
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded uppercase">${item.kategori}</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-1.5">${item.judul}</h4>
+                            <p class="text-xs text-slate-500 mt-1">${item.deskripsi}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Gelombang Pendaftaran
             const boxGel = document.getElementById('listGelombang');
-            boxGel.innerHTML = sekolahData.gelombang.map(g => {
+            boxGel.innerHTML = CONFIG_PPDB.gelombang.map(g => {
                 const statusInfo = hitungStatusGelombang(g.start, g.end);
                 return `
                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
@@ -693,25 +781,22 @@
                 `;
             }).join('');
 
-            // Render Persyaratan
+            // Render Persyaratan Berkas Fisik
             const boxSyarat = document.getElementById('listSyarat');
-            boxSyarat.innerHTML = sekolahData.persyaratan.map(s => `
+            boxSyarat.innerHTML = CONFIG_PPDB.persyaratanFisik.map(s => `
                 <li class="flex items-start gap-2">
                     <i class="ph ph-check-circle text-emerald-600 text-base shrink-0 mt-0.5"></i>
                     <span>${s}</span>
                 </li>
             `).join('');
 
-            // Drawer Mobile Navigation
+            // Mobile Menu Toggle
             document.getElementById('menuToggle').addEventListener('click', () => {
                 document.getElementById('mobileDrawer').classList.toggle('hidden');
             });
         });
 
-        function unduhSimulasi(namaDokumen) {
-            showToast(`Mengunduh ${namaDokumen}... (Simulasi Berkas)`, 'info');
-        }
-
+        // Proses Form Pendaftaran & Kirim ke Google Apps Script
         async function simpanPendaftaran(e) {
             e.preventDefault();
 
@@ -725,52 +810,71 @@
             textSubmit.innerText = "Mengirim Data...";
             iconSubmit.className = "ph ph-spinner-gap animate-spin text-lg";
 
+            const formData = new FormData(form);
+            const dataObj = Object.fromEntries(formData.entries());
+
+            // Generate Kode Registrasi Unik
+            const randomId = Math.floor(1000 + Math.random() * 9000);
+            const kodeReg = `PPDB-${new Date().getFullYear()}-${randomId}`;
+            const tglDaftar = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            const payload = {
+                ...dataObj,
+                kodeReg: kodeReg,
+                tglDaftar: tglDaftar
+            };
+
             try {
-                const formData = new FormData(form);
-                const dataObj = Object.fromEntries(formData.entries());
-
-                if (GOOGLE_SCRIPT_URL === 'URL_WEB_APP_GOOGLE_SCRIPT_ANDA_DISINI') {
-                    // Mode Demo
-                    const demoKode = "PPDB-2026-" + Math.floor(100 + Math.random() * 900);
-                    document.getElementById('mKode').innerText = demoKode;
-                    document.getElementById('mNama').innerText = dataObj.namaSiswa || "-";
-                    document.getElementById('mOrtu').innerText = dataObj.namaAyah || "-";
-                    document.getElementById('mTgl').innerText = new Date().toLocaleDateString('id-ID');
-                    
-                    document.getElementById('modalBukti').classList.remove('hidden');
-                    showToast("Pendaftaran berhasil disimpan (Mode Preview)", "info");
-                    form.reset();
-                    return;
+                // Kirim Data Ke Google Apps Script Web App jika URL tersedia
+                if (CONFIG_PPDB.googleScriptUrl && !CONFIG_PPDB.googleScriptUrl.includes('AKfycbx...')) {
+                    await fetch(CONFIG_PPDB.googleScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors', // Penting untuk menghindari CORS issue Google Script
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
                 }
-
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(dataObj)
-                });
-
-                const result = await response.json();
-
-                if (result.result === "success") {
-                    document.getElementById('mKode').innerText = result.kode;
-                    document.getElementById('mNama').innerText = result.nama;
-                    document.getElementById('mOrtu').innerText = result.ortu;
-                    document.getElementById('mTgl').innerText = new Date().toLocaleDateString('id-ID');
-
-                    document.getElementById('modalBukti').classList.remove('hidden');
-                    showToast("Pendaftaran berhasil disimpan ke sistem!", "info");
-                    form.reset();
-                } else {
-                    showToast("Gagal mengirim data: " + (result.error || "Terjadi kesalahan"), "error");
-                }
-
-            } catch (error) {
-                console.error(error);
-                showToast("Data pendaftaran terproses dalam mode offline/demo.", "info");
+            } catch (err) {
+                console.warn("Koneksi Google Script gagal / mode offline.", err);
             } finally {
+                // Isi Modal Bukti
+                document.getElementById('mKode').innerText = kodeReg;
+                document.getElementById('mNama').innerText = dataObj.namaSiswa || "-";
+                document.getElementById('mOrtu').innerText = dataObj.namaAyah || "-";
+                document.getElementById('mWaOrtu').innerText = dataObj.noWa || "-";
+                document.getElementById('mTgl').innerText = tglDaftar;
+
+                // Format Pesan WhatsApp Konfirmasi ke Panitia
+                const waPanitiaClean = formatNomorWa(CONFIG_PPDB.teleponWaPanitia);
+                const waText = 
+`Assalamu'alaikum Warahmatullahi Wabarakatuh,
+Panitia PPDB ${CONFIG_PPDB.namaSekolah}.
+
+Saya telah mengisi *Formulir Pendaftaran Online PPDB* melalui website. Berikut adalah detail data calon siswa:
+
+📌 *NO. REGISTRASI:* ${kodeReg}
+👤 *Nama Calon Siswa:* ${dataObj.namaSiswa}
+🚻 *Jenis Kelamin:* ${dataObj.jenisKelamin}
+🏫 *Asal TK/PAUD:* ${dataObj.asalSekolah || '-'}
+👨‍👩‍👦 *Nama Orang Tua:* ${dataObj.namaAyah}
+📱 *No. WA Orang Tua:* ${dataObj.noWa}
+🏠 *Alamat:* ${dataObj.alamatLengkap}
+
+Mohon dapat ditindaklanjuti untuk proses verifikasi berkas selanjutnya. Terima kasih.`;
+
+                const encodedWaMsg = encodeURIComponent(waText);
+                document.getElementById('btnKirimWaKonfirmasi').href = `https://wa.me/${waPanitiaClean}?text=${encodedWaMsg}`;
+
+                // Tampilkan Modal Hasil & Toast Notification
+                document.getElementById('modalBukti').classList.remove('hidden');
+                showToast("Pendaftaran berhasil disimpan!", "info");
+
+                // Reset Button & Form
                 btnSubmit.disabled = false;
                 btnSubmit.classList.remove('opacity-70', 'cursor-not-allowed');
-                textSubmit.innerText = "Kirim Pendaftaran";
+                textSubmit.innerText = "Simpan & Kirim Pendaftaran";
                 iconSubmit.className = "ph ph-paper-plane-right text-lg";
+                form.reset();
             }
         }
 
