@@ -222,7 +222,7 @@
         </div>
     </section>
 
-    <!-- Keunggulan Section -->
+    <!-- Keunggulan Section (Mengapa Memilih Kami) -->
     <section id="keunggulan" class="py-16 bg-slate-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -230,7 +230,8 @@
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Keunggulan SD Muhammadiyah 001 Melak</h2>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Menggunakan lg:grid-cols-3 max-w-5xl mx-auto untuk perataan simetris 3 kolom -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                     <div class="w-12 h-12 bg-blue-100 text-blue-900 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-book-open-text"></i>
@@ -247,7 +248,8 @@
                     <p class="text-xs text-slate-600 leading-relaxed">Bimbingan hafalan Juz 30 dan surat-surat pilihan.</p>
                 </div>
                 
-                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                <!-- Kartu Ekstrakurikuler Beragam dibuat rata tengah di layar sm (sm:col-span-2 lg:col-span-1 max-w-md mx-auto w-full) -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all sm:col-span-2 lg:col-span-1 max-w-md mx-auto w-full">
                     <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
                         <i class="ph ph-trophy"></i>
                     </div>
@@ -342,7 +344,7 @@
                             <i class="ph ph-printer"></i>
                         </div>
                         <h4 class="text-sm font-bold text-slate-800">Formulir Isian Manual</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Formulir kosong cetaksilahkan isi data dengan tulisan tangan.</p>
+                        <p class="text-xs text-slate-500 leading-relaxed">Formulir kosong cetak silahkan isi data dengan tulisan tangan.</p>
                     </div>
                     <a id="btnUnduhFormManual" href="#" target="_blank" class="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
                         <i class="ph ph-download-simple text-base"></i> Unduh File
@@ -557,7 +559,6 @@
     <script>
         /* =========================================================================
            KOTAK PENGATURAN UTAMA (CONFIG SPMB)
-           Ganti URL, Nomor WA, Logo, dan Dokumen di bawah ini dengan mudah.
            ========================================================================= */
         const CONFIG_SPMB = {
             // 1. INFORMASI DASAR SEKOLAH
@@ -570,19 +571,17 @@
             kuota: "60 Siswa Baru (2 Rombel)",
             biayaFormulir: "Gratis",
 
-            // 2. NOMOR WHATSAPP PANITIA (Yang akan menerima konfirmasi dari Ortu)
-            // Format: Boleh "08123456789" atau "628123456789"
+            // 2. NOMOR WHATSAPP PANITIA
             teleponWaPanitia: "085348782007",
 
-            // 3. URL GOOGLE APPS SCRIPT WEB APP (Dapat dari Deployment script Code.gs)
+            // 3. URL GOOGLE APPS SCRIPT WEB APP
             googleScriptUrl: "https://script.google.com/macros/s/AKfycbweHdwb6BE_8Bp3ZAxQnZwOJ3qwmnZB6pgNO_uDBBcStWtudxVNT0yX325SxNTd7_xQ/exec",
 
             // 4. LINK GAMBAR LOGO & BACKGROUND HERO
             logoSekolahUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/logo_sd.jpeg",
             heroBgImageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/logo_sd.jpeg",
 
-            // 5. LINK UNDUHAN BERKAS FISIK (Google Drive / PDF / Dropbox)
-            // Catatan: linkDownloadPernyataanOrtu sudah dihapus karena tidak diperlukan
+            // 5. LINK UNDUHAN BERKAS FISIK
             linkDownloadBrosur: "https://drive.google.com/file/d/14o6NKCGv-ASbJdNIxCXcmXWd3HV1nc3c/view?usp=sharing",
             linkDownloadFormManual: "https://drive.google.com/file/d/1NaLX8jFKBG_xVP7pbLc-oVRplxbI7I7i/view?usp=drive_link",
 
@@ -597,7 +596,7 @@
                 { 
                     nama: "Gelombang II (Peluang)", 
                     tgl: "02 Januari - 30 Juni 2027", 
-                    start: "2027-o1-02", 
+                    start: "2027-01-02", 
                     end: "2027-06-30" 
                 }
             ],
@@ -639,11 +638,47 @@
                     kategori: "Penguatan akidah, fiqh dan akhlaq",
                     imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/penguatan_akidah_dan_akhlaq.jpeg",
                     deskripsi: "Metode pembelajaran langsung dan praktis."
+                },
+                 {
+                    judul: "Ekskul Bulu Tangkis",
+                    kategori: "Penyaluran hobi dan peningkatan bakat",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/bulu_tangkis.jpeg",
+                    deskripsi: "Belajar Sambil Bermain."
+                },
+                   {
+                    judul: "Ekskul Bola",
+                    kategori: "Penyaluran hobi dan peningkatan bakat",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/ekskul_bola.jpeg",
+                    deskripsi: "Belajar Sambil Bermain."
+                },
+                  {
+                    judul: "Pengayaan Wawasan",
+                    kategori: "Simulasi Sigap Bencana",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/foto_bersama_pemadam.jpeg",
+                    deskripsi: "Belajar Sambil Bermain."
+                },
+                   {
+                    judul: "Senam Anak Indonesia Hebat",
+                    kategori: "Senam Hari Jum'at",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/senam_jum'at.jpeg",
+                    deskripsi: "Belajar Sambil Bermain."
+                },
+                 {
+                    judul: "Ekskul Panahan",
+                    kategori: "Berlatih Panahan",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/panahan.jpeg",
+                    deskripsi: "Belajar Dan Mengamalkan Hadits Anjuran Belajar Memanah."
+                },
+                  {
+                    judul: "Kajian Jelang Buka Puasa Bersama",
+                    kategori: "Pengajian Bersama",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/kajian_menjelang_buka_puasa.jpeg",
+                    deskripsi: "Sebaik-baik Kalian Adalah Yang Mempelajari Al-qur'an Dan Yang Mengajarkannya."
                 }
             ]
         };
 
-        // Format nomor HP agar valid untuk link WhatsApp API (misal 08123 -> 628123)
+        // Format nomor HP agar valid untuk link WhatsApp API
         function formatNomorWa(noHp) {
             let cleaned = ('' + noHp).replace(/\D/g, '');
             if (cleaned.startsWith('0')) {
@@ -675,7 +710,7 @@
             }, 4000);
         }
 
-        // Kalkulasi Status Gelombang (Aktif/Mendatang/Tutup)
+        // Kalkulasi Status Gelombang
         function hitungStatusGelombang(startDateStr, endDateStr) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
@@ -691,7 +726,6 @@
             }
         }
 
-        // Inisialisasi Elemen & Data Konfigurasi Saat Halaman Dimuat
         window.addEventListener('DOMContentLoaded', () => {
             // Pasang Logo
             document.getElementById('imgLogoNav').src = CONFIG_SPMB.logoSekolahUrl;
@@ -717,7 +751,7 @@
             document.getElementById('txtFooterTelp').innerText = CONFIG_SPMB.teleponWaPanitia;
             document.getElementById('txtFooterEmail').innerText = CONFIG_SPMB.email;
 
-            // Link Unduhan File Fisik (Pernyataan Ortu sudah dihapus)
+            // Link Unduhan File Fisik
             document.getElementById('btnUnduhBrosur').href = CONFIG_SPMB.linkDownloadBrosur;
             document.getElementById('btnUnduhFormManual').href = CONFIG_SPMB.linkDownloadFormManual;
 
@@ -808,7 +842,7 @@
                 if (CONFIG_SPMB.googleScriptUrl && !CONFIG_SPMB.googleScriptUrl.includes('AKfycbx...')) {
                     await fetch(CONFIG_SPMB.googleScriptUrl, {
                         method: 'POST',
-                        mode: 'no-cors', // Penting untuk menghindari CORS issue Google Script
+                        mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
