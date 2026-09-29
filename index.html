@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPDB Online - SD Muhammadiyah 001 Melak</title>
+    <title>SPMB Online - SD Muhammadiyah 001 Melak</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,7 +78,7 @@
             <!-- Desktop Nav Menu -->
             <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
                 <a href="#beranda" class="hover:text-blue-900 transition-colors">Beranda</a>
-                <a href="#alur" class="hover:text-blue-900 transition-colors">Alur PPDB</a>
+                <a href="#alur" class="hover:text-blue-900 transition-colors">Alur SPMB</a>
                 <a href="#keunggulan" class="hover:text-blue-900 transition-colors">Keunggulan</a>
                 <a href="#galeri" class="hover:text-blue-900 transition-colors">Galeri</a>
                 <a href="#informasi" class="hover:text-blue-900 transition-colors">Syarat & Jadwal</a>
@@ -102,7 +102,7 @@
         <!-- Mobile Drawer -->
         <div id="mobileDrawer" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3 shadow-lg">
             <a href="#beranda" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Beranda</a>
-            <a href="#alur" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Alur PPDB</a>
+            <a href="#alur" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Alur SPMB</a>
             <a href="#keunggulan" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Keunggulan</a>
             <a href="#galeri" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Galeri Activities</a>
             <a href="#informasi" class="block font-medium text-slate-700 hover:text-blue-900 py-1">Syarat & Jadwal</a>
@@ -130,7 +130,7 @@
                     </h2>
 
                     <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0" id="txtHeroDeskripsi">
-                        Selamat datang di portal resmi PPDB online. Kami siap mendidik putra-putri Anda dengan fondasi Al-Islam, Tahfizh Qur'an, dan ilmu pengetahuan modern.
+                        Selamat datang di portal resmi SPMB online. Kami siap mendidik putra-putri Anda dengan fondasi Al-Islam, Tahfizh Qur'an, dan ilmu pengetahuan modern.
                     </p>
 
                     <!-- Hero Quick CTAs -->
@@ -268,12 +268,12 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="boxGaleriFoto">
-                <!-- Content generated from CONFIG_PPDB.galeriFoto -->
+                <!-- Content generated from CONFIG_SPMB.galeriFoto -->
             </div>
         </div>
     </section>
 
-    <!-- Informasi PPDB & Syarat Berkas Fisik -->
+    <!-- Informasi SPMB & Syarat Berkas Fisik -->
     <section id="informasi" class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -300,7 +300,7 @@
                         <i class="ph ph-files text-2xl text-amber-500"></i>
                         <span>Berkas Fisik yang Harus Diserahkan</span>
                     </h3>
-                    <p class="text-xs text-slate-500">Diserahkan ke Panitia PPDB di Sekolah saat verifikasi berkas:</p>
+                    <p class="text-xs text-slate-500">Diserahkan ke Panitia SPMB di Sekolah saat verifikasi berkas:</p>
 
                     <ul id="listSyarat" class="space-y-2.5 text-xs sm:text-sm text-slate-700 pt-1">
                         <!-- Dynamic via JS -->
@@ -341,7 +341,7 @@
                             <i class="ph ph-file-text"></i>
                         </div>
                         <h4 class="text-sm font-bold text-slate-800">Brosur & Rincian Biaya</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Informasi lengkap rincian seragam, infak, dan jadwal kegiatan PPDB.</p>
+                        <p class="text-xs text-slate-500 leading-relaxed">Informasi lengkap rincian seragam, infak, dan jadwal kegiatan SPMB.</p>
                     </div>
                     <a id="btnUnduhBrosur" href="#" target="_blank" class="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
                         <i class="ph ph-download-simple text-base"></i> Unduh File
@@ -376,7 +376,7 @@
 
             <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 card-shadow">
                 
-                <form id="formPpdb" onsubmit="simpanPendaftaran(event)">
+                <form id="formSPMB" onsubmit="simpanPendaftaran(event)">
                     
                     <!-- Section 1: Data Calon Siswa -->
                     <div class="space-y-4 pb-6 border-b border-slate-200">
@@ -527,7 +527,7 @@
             <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2 text-slate-700">
                 <div class="flex justify-between border-b pb-1.5">
                     <span class="text-slate-500">No. Registrasi:</span>
-                    <strong id="mKode" class="font-mono text-amber-600 text-sm">PPDB-2026-000</strong>
+                    <strong id="mKode" class="font-mono text-amber-600 text-sm">SPMB-2026-000</strong>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-slate-500">Nama Siswa:</span>
@@ -569,10 +569,10 @@
     <!-- Application Configuration & Script Logic -->
     <script>
         /* =========================================================================
-           KOTAK PENGATURAN UTAMA (CONFIG PPDB)
+           KOTAK PENGATURAN UTAMA (CONFIG SPMB)
            Ganti URL, Nomor WA, Logo, dan Dokumen di bawah ini dengan mudah.
            ========================================================================= */
-        const CONFIG_PPDB = {
+        const CONFIG_SPMB = {
             // 1. INFORMASI DASAR SEKOLAH
             namaSekolah: "SD Muhammadiyah 001 Melak",
             npsn: "30405647",
@@ -585,14 +585,14 @@
 
             // 2. NOMOR WHATSAPP PANITIA (Yang akan menerima konfirmasi dari Ortu)
             // Format: Boleh "08123456789" atau "628123456789"
-            teleponWaPanitia: "082234760733",
+            teleponWaPanitia: "085348782007",
 
             // 3. URL GOOGLE APPS SCRIPT WEB APP (Dapat dari Deployment script Code.gs)
             googleScriptUrl: "https://script.google.com/macros/s/AKfycbweHdwb6BE_8Bp3ZAxQnZwOJ3qwmnZB6pgNO_uDBBcStWtudxVNT0yX325SxNTd7_xQ/exec",
 
             // 4. LINK GAMBAR LOGO & BACKGROUND HERO
-            logoSekolahUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/logo_sd.jpeg",
-            heroBgImageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/logo_sd.jpeg",
+            logoSekolahUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-SPMB@main/logo_sd.jpeg",
+            heroBgImageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-SPMB@main/logo_sd.jpeg",
 
             // 5. LINK UNDUHAN BERKAS FISIK (Google Drive / PDF / Dropbox)
             linkDownloadPernyataanOrtu: "https://drive.google.com/file/d/1jI63VdAA1l83IigtuhKp6tQxs43m1stG/view?usp=drive_link",
@@ -650,7 +650,7 @@
                 {
                     judul: "Kegiatan TPA di masjid",
                     kategori: "Penguatan akidah, fiqh dan akhlaq",
-                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-ppdb@main/IMG_20260929_132451.jpg",
+                    imageUrl: "https://cdn.jsdelivr.net/gh/faudyadam77-tech/file-SPMB@main/IMG_20260929_132451.jpg",
                     deskripsi: "Metode pembelajaran langsung dan praktis."
                 }
             ]
@@ -707,42 +707,42 @@
         // Inisialisasi Elemen & Data Konfigurasi Saat Halaman Dimuat
         window.addEventListener('DOMContentLoaded', () => {
             // Pasang Logo
-            document.getElementById('imgLogoNav').src = CONFIG_PPDB.logoSekolahUrl;
-            document.getElementById('imgLogoFooter').src = CONFIG_PPDB.logoSekolahUrl;
+            document.getElementById('imgLogoNav').src = CONFIG_SPMB.logoSekolahUrl;
+            document.getElementById('imgLogoFooter').src = CONFIG_SPMB.logoSekolahUrl;
 
             // Pasang Background Hero
             const heroElem = document.getElementById('beranda');
-            if (CONFIG_PPDB.heroBgImageUrl) {
-                heroElem.style.backgroundImage = `url('${CONFIG_PPDB.heroBgImageUrl}')`;
+            if (CONFIG_SPMB.heroBgImageUrl) {
+                heroElem.style.backgroundImage = `url('${CONFIG_SPMB.heroBgImageUrl}')`;
             }
 
             // Teks Identitas Sekolah
-            document.getElementById('txtNamaNav').innerText = CONFIG_PPDB.namaSekolah;
-            document.getElementById('txtNamaSekolah').innerText = CONFIG_PPDB.namaSekolah;
-            document.getElementById('txtFooterNamaSekolah').innerText = CONFIG_PPDB.namaSekolah;
-            document.getElementById('txtHeroTahun').innerText = CONFIG_PPDB.tahunAjaran;
-            document.getElementById('txtNpsn').innerText = CONFIG_PPDB.npsn;
-            document.getElementById('txtAkreditasi').innerText = CONFIG_PPDB.akreditasi;
-            document.getElementById('txtAlamatSekolah').innerText = CONFIG_PPDB.alamat;
-            document.getElementById('txtFooterAlamat').innerText = CONFIG_PPDB.alamat;
-            document.getElementById('txtKuota').innerText = CONFIG_PPDB.kuota;
-            document.getElementById('txtBiayaForm').innerText = CONFIG_PPDB.biayaFormulir;
-            document.getElementById('txtFooterTelp').innerText = CONFIG_PPDB.teleponWaPanitia;
-            document.getElementById('txtFooterEmail').innerText = CONFIG_PPDB.email;
+            document.getElementById('txtNamaNav').innerText = CONFIG_SPMB.namaSekolah;
+            document.getElementById('txtNamaSekolah').innerText = CONFIG_SPMB.namaSekolah;
+            document.getElementById('txtFooterNamaSekolah').innerText = CONFIG_SPMB.namaSekolah;
+            document.getElementById('txtHeroTahun').innerText = CONFIG_SPMB.tahunAjaran;
+            document.getElementById('txtNpsn').innerText = CONFIG_SPMB.npsn;
+            document.getElementById('txtAkreditasi').innerText = CONFIG_SPMB.akreditasi;
+            document.getElementById('txtAlamatSekolah').innerText = CONFIG_SPMB.alamat;
+            document.getElementById('txtFooterAlamat').innerText = CONFIG_SPMB.alamat;
+            document.getElementById('txtKuota').innerText = CONFIG_SPMB.kuota;
+            document.getElementById('txtBiayaForm').innerText = CONFIG_SPMB.biayaFormulir;
+            document.getElementById('txtFooterTelp').innerText = CONFIG_SPMB.teleponWaPanitia;
+            document.getElementById('txtFooterEmail').innerText = CONFIG_SPMB.email;
 
             // Link Unduhan File Fisik
-            document.getElementById('btnUnduhPernyataan').href = CONFIG_PPDB.linkDownloadPernyataanOrtu;
-            document.getElementById('btnUnduhBrosur').href = CONFIG_PPDB.linkDownloadBrosur;
-            document.getElementById('btnUnduhFormManual').href = CONFIG_PPDB.linkDownloadFormManual;
+            document.getElementById('btnUnduhPernyataan').href = CONFIG_SPMB.linkDownloadPernyataanOrtu;
+            document.getElementById('btnUnduhBrosur').href = CONFIG_SPMB.linkDownloadBrosur;
+            document.getElementById('btnUnduhFormManual').href = CONFIG_SPMB.linkDownloadFormManual;
 
             // Link WA Hero Section
-            const waCleanPanitia = formatNomorWa(CONFIG_PPDB.teleponWaPanitia);
-            const defaultHeroWaMsg = encodeURIComponent(`Assalamu'alaikum Panitia PPDB ${CONFIG_PPDB.namaSekolah}, saya ingin bertanya mengenai pendaftaran.`);
+            const waCleanPanitia = formatNomorWa(CONFIG_SPMB.teleponWaPanitia);
+            const defaultHeroWaMsg = encodeURIComponent(`Assalamu'alaikum Panitia SPMB ${CONFIG_SPMB.namaSekolah}, saya ingin bertanya mengenai pendaftaran.`);
             document.getElementById('btnWaHero').href = `https://wa.me/${waCleanPanitia}?text=${defaultHeroWaMsg}`;
 
             // Render Galeri
             const boxGaleri = document.getElementById('boxGaleriFoto');
-            boxGaleri.innerHTML = CONFIG_PPDB.galeriFoto.map(item => `
+            boxGaleri.innerHTML = CONFIG_SPMB.galeriFoto.map(item => `
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 flex flex-col">
                     <div class="h-44 overflow-hidden bg-slate-200 relative">
                         <img src="${item.imageUrl}" alt="${item.judul}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/0F2C59/FFFFFF?text=Dokumentasi+Sekolah'">
@@ -759,7 +759,7 @@
 
             // Render Gelombang Pendaftaran
             const boxGel = document.getElementById('listGelombang');
-            boxGel.innerHTML = CONFIG_PPDB.gelombang.map(g => {
+            boxGel.innerHTML = CONFIG_SPMB.gelombang.map(g => {
                 const statusInfo = hitungStatusGelombang(g.start, g.end);
                 return `
                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
@@ -776,7 +776,7 @@
 
             // Render Persyaratan Berkas Fisik
             const boxSyarat = document.getElementById('listSyarat');
-            boxSyarat.innerHTML = CONFIG_PPDB.persyaratanFisik.map(s => `
+            boxSyarat.innerHTML = CONFIG_SPMB.persyaratanFisik.map(s => `
                 <li class="flex items-start gap-2">
                     <i class="ph ph-check-circle text-emerald-600 text-base shrink-0 mt-0.5"></i>
                     <span>${s}</span>
@@ -808,7 +808,7 @@
 
             // Generate Kode Registrasi Unik
             const randomId = Math.floor(1000 + Math.random() * 9000);
-            const kodeReg = `PPDB-${new Date().getFullYear()}-${randomId}`;
+            const kodeReg = `SPMB-${new Date().getFullYear()}-${randomId}`;
             const tglDaftar = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
             const payload = {
@@ -819,8 +819,8 @@
 
             try {
                 // Kirim Data Ke Google Apps Script Web App jika URL tersedia
-                if (CONFIG_PPDB.googleScriptUrl && !CONFIG_PPDB.googleScriptUrl.includes('AKfycbx...')) {
-                    await fetch(CONFIG_PPDB.googleScriptUrl, {
+                if (CONFIG_SPMB.googleScriptUrl && !CONFIG_SPMB.googleScriptUrl.includes('AKfycbx...')) {
+                    await fetch(CONFIG_SPMB.googleScriptUrl, {
                         method: 'POST',
                         mode: 'no-cors', // Penting untuk menghindari CORS issue Google Script
                         headers: { 'Content-Type': 'application/json' },
@@ -838,12 +838,12 @@
                 document.getElementById('mTgl').innerText = tglDaftar;
 
                 // Format Pesan WhatsApp Konfirmasi ke Panitia
-                const waPanitiaClean = formatNomorWa(CONFIG_PPDB.teleponWaPanitia);
+                const waPanitiaClean = formatNomorWa(CONFIG_SPMB.teleponWaPanitia);
                 const waText = 
 `Assalamu'alaikum Warahmatullahi Wabarakatuh,
-Panitia PPDB ${CONFIG_PPDB.namaSekolah}.
+Panitia SPMB ${CONFIG_SPMB.namaSekolah}.
 
-Saya telah mengisi *Formulir Pendaftaran Online PPDB* melalui website. Berikut adalah detail data calon siswa:
+Saya telah mengisi *Formulir Pendaftaran Online SPMB* melalui website. Berikut adalah detail data calon siswa:
 
 📌 *NO. REGISTRASI:* ${kodeReg}
 👤 *Nama Calon Siswa:* ${dataObj.namaSiswa}
